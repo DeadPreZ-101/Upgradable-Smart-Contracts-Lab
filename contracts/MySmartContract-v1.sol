@@ -19,9 +19,9 @@ contract MySmartContractV1 {
     }
 
     /**
-    @dev logic to halt the contract
+    @dev logic to stop the contract
      */
-    modifier pauseContract() {
+    modifier stopContract() {
         require(!pause, "Contract is stopped");
         _;
     }
@@ -36,7 +36,7 @@ contract MySmartContractV1 {
     @notice Increments the contract's counter if contract is active.
     @dev It should revert if the contract is stopped. Create a modifier named "isNotStopped"
     */
-    function incrementCounter() public pauseContract() {
+    function incrementCounter() public stopContract() {
         counter += 2; // This is an intentional bug.
     }
 
