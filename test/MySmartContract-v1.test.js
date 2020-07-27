@@ -26,3 +26,4 @@ contract("MySmartContract", function ([_, deployer]) {
     );
   });
 });
+ 
