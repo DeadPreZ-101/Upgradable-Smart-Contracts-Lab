@@ -13,7 +13,7 @@ contract MySmartContract {
         require(msg.sender == owner, "Sender is not owner.");
         _;
     }
-    modifier pauseContract() {
+    modifier stopContract() {
         require(!pause, "Contract is stopped.");
         _;
     }
@@ -28,7 +28,7 @@ contract MySmartContract {
     @notice Increments the contract's counter if contract is active.
     @dev It will revert is the contract is stopped. Create a modifier "isNotStopped"
     */
-    function incrementCounter() public pauseContract {
+    function incrementCounter() public stopContract {
         counter++; // Fixes bug introduced in version 1.
     }
 
